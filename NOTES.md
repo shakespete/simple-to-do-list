@@ -26,3 +26,16 @@ Container components use a connector to connect Redux to a presentational compon
 Container components use a connector to connect Redux to a presentational component. This connector accepts two functions:
 1) mapStateToProps(state): Takes the current Redux state, and returns an object of props to be passed to the component; used to pass state to the component
 2) mapDispatchToProps(dispatch): Takes the dispatch function from the Redux store, and returns an object of props to be passed to the component; used to pass action creators to the component
+
+
+Redux Hooks
+
+useDispatch
+The useDispatch Hook returns a reference to the dispatch function that is provided by the Redux store. It can be used to dispatch actions that are returned from action creators.
+
+useSelector
+The Selector Hook. It allows us to get data from the Redux store state, by defining a selector function.
+
+const result = useSelector(selectorFn, equalityFn)
+
+selectorFn is a function that works similarly to the mapStateToProps function. It will get the full state object as its only argument. The selector function gets executed whenever the component renders, and whenever an action is dispatched (and the state is different than the previous state).
