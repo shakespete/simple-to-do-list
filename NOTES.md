@@ -63,6 +63,27 @@ The useMemo Hook takes a result of a function and memoizes it. This means that i
 
 The array passed as the second argument specifies the dependencies of the function. If any of these values change, the function will be recomputed; otherwise, the stored result will be used. If no array is provided, a new value will be computed on every render. If an empty array is passed, the value will only be computed once.
 
+useMemo is similar to useCallback except it allows you to apply memoization to any value type (not just functions). 
+
+<h3>useCallback</h3>
+The useCallback Hook works similarly to the useMemo Hook. However, it returns a memoized callback function instead of a value. The function returned will only be redefined if one of the dependency values passed in the array of the second argument changes.
+
+```
+const memoizedCallback = useCallback(
+  () => doSomething(a, b, c),
+  [a, b, c]
+)
+```
+
+The previous code is similar to the following useMemo Hook:
+
+```
+const memoizedCallback = useMemo(
+  () => () => doSomething(a, b, c),
+  [a, b, c]
+)
+```
+
 <h3>useRef</h3>
 The useRef Hook returns a ref object that can be assigned to a component or element via the ref prop.
 
